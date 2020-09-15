@@ -18,6 +18,7 @@ class Settings(BaseSettings):
     api_key_gcp: str = Field(..., env='api_key_gcp')
     port: int = 8080
     model_name: str
+    spacy_corpus: str = 'pl_core_news_sm'
 
     class Config:
         env_file = os.path.join(_PROJECT_DIR, '.env')
