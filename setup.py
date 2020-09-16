@@ -1,6 +1,6 @@
 from setuptools import find_packages, setup
 
-setup(name='harmfull_app',
+setup(name='backend',
       version='1.0',
       description='Backend which detects harmfulness twits',
       author='Rafal Bodziony',

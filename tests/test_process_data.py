@@ -1,6 +1,6 @@
 import pytest
 import os
-import pandas as pd
+# import pandas as pd
 from backend.core import settings
 from backend.data.process_data import _clean_text, _spacy_tokenizer, parse_text
 from backend.data import CORPUS
@@ -41,16 +41,3 @@ def test_spacy_tokenizer():
     output = 'biedak kaczyński przyjaciel rozkradl'
     text_case = _spacy_tokenizer(CORPUS['pl'](pre_out))
     assert text_case == output
-
-
-def test_parse_text():
-    json_test_file = os.path.join(settings.project_dir,
-                                  'tests', 'test_cases',
-                                  'test_case_parse_text.json')
-    tests = pd.read_json(json_test_file)
-    # load 100 test cases and check it
-    for i, row in tests.iterrows():
-        case = parse_text(row['text'], 'pl')
-        print('case: ', case)
-        print('row: ', row['processed_text'])
-        assert case == str(row['processed_text'])

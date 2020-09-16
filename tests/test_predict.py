@@ -10,7 +10,7 @@ def test_predictior_loader():
     assert test_predictor.model_name == settings.model_name
     assert test_predictor.language == 'pl'
     assert test_predictor.min_length == 10
-    assert test_predictor.model[settings.model_name]
+    assert test_predictor.model
 
 
 def test_predictor_predict():
@@ -20,10 +20,10 @@ def test_predictor_predict():
     test_case = TextCreate(text='Dla mnie faworytem do tytułu będzie Cracovia. Zobaczymy, czy typ się sprawdzi.')
     result = test_predictor.predict(test_case)
     assert isinstance(result, TextPredict)
-    assert(result.text == test_case)
+    assert(result.text == test_case.text)
 
     # integration test
-    integration_case = parse_text(test_case, 'pl')
+    integration_case = parse_text(test_case.text, 'pl')
     assert(result.text_tokenized == integration_case)
 
     # test payload None

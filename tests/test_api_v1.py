@@ -32,20 +32,23 @@ def test_post_wrong_payload():
     assert response.status_code == 422
 
     # payload in different language
-    response = client.post(
-        '/{}/predict'.format(settings.api_version),
-        json={'text': 'this is test'},
-        headers={"token": settings.auth_key}
-    )
-    assert response.status_code == 422
+    # test bad case
+    with pytest.raises(ValueError):
+        response = client.post(
+            '/{}/predict'.format(settings.api_version),
+            json={'text': 'this is test'},
+            headers={"token": settings.auth_key}
+        )
+        assert response.status_code == 422
 
     # payload too short
-    response = client.post(
-        '/{}/predict'.format(settings.api_version),
-        json={'text': 'mój test'},
-        headers={"token": settings.auth_key}
-    )
-    assert response.status_code == 422
+    with pytest.raises(ValueError):
+        response = client.post(
+            '/{}/predict'.format(settings.api_version),
+            json={'text': 'mój test'},
+            headers={"token": settings.auth_key}
+        )
+        assert response.status_code == 422
 
     # payload with text only
     test_text = 'Dla mnie faworytem do tytułu będzie Cracovia. Zobaczymy, czy typ się sprawdzi.'
@@ -77,7 +80,7 @@ def test_post_wrong_payload():
     )
     assert response.status_code == 200
     test_response = response.json()
-    assert test_response['user_id'] == 1
+    assert test_response['user_id'] == '1'
     assert test_response['language'] == 'pl'
     assert test_response['time_utc'] == '2020-09-20 20:00:00'
 

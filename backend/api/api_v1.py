@@ -33,5 +33,5 @@ async def post_prediction(text_in: TextCreate, authenticated: bool = Depends(val
     except:
         raise HTTPException(status_code=404, detail=HTTP_500_DETAIL)
 
-    prediction = await model.predict(text_in)
+    prediction = model.predict(text_in)
     return prediction
