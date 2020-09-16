@@ -22,7 +22,7 @@ jobs:
         python-version: 3.7    
     - name: black
       uses: lgeiger/black-action@v1.0.1
-        with:
+      with:
           args: ". --check"
     - name: Install dependencies
       run: |
