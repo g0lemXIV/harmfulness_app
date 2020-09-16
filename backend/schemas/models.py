@@ -1,5 +1,5 @@
 "Create models for input and output reciver"
-from typing import Optional
+from typing import Optional, List
 from pydantic import BaseModel
 
 
@@ -15,6 +15,7 @@ class TextCreate(TextBase):
 
 class TextPredict(TextBase):
     prediction: float
+    prediction_proba: List[float]
     text: str
     text_tokenized: str
 

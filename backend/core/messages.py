@@ -5,4 +5,4 @@ HTTP_500_DETAIL = "Internal server error."
 
 NO_VALID_PAYLOAD = "{} is not a valid payload."
 NO_VALID_LANGUAGE = "{} is not a valid language or wrong recognize: {}."
-NO_VALID_SENTENCE = "{} is not valid sentence, except at least len > 0 found {}"
+NO_VALID_SENTENCE = "{} is not valid sentence, except at least len > {} found {}"

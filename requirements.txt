@@ -1,0 +1,11 @@
+pytest~=6.0.2
+setuptools~=50.3.0
+fastapi~=0.61.1
+pydantic[dotenv]~=1.6.1
+numpy~=1.19.2
+langdetect~=1.0.8
+spacy~=2.3.2
+# download polish language corpus
+https://github.com/explosion/spacy-models/releases/download/pl_core_news_sm-2.3.0/pl_core_news_sm-2.3.0.tar.gz#egg=pl_core_news_sm
+joblib~=0.16.0
+scikit-learn~=0.23.2

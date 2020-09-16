@@ -18,7 +18,3 @@ app.add_middleware(
 @app.post('/v1/predict/{}'.format(settings.model_name))
 def create_prediction(text_in: TextCreate):
     pass
-
-@app.post('/v1/predict/')
-def create_twitter_prediction(link_in: LinkCreate):
-    pass
