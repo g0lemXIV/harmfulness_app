@@ -6,7 +6,7 @@ from pydantic import BaseModel
 class TextBase(BaseModel):
     user_id: Optional[str] = None
     time_utc: Optional[str] = None
-    language: Optional[str] = 'pl'
+    language: Optional[str] = "pl"
 
 
 class TextCreate(TextBase):
@@ -18,7 +18,7 @@ class TextCreate(TextBase):
                 "user_id": 1,
                 "time_utc": "2020-09-20 20:00:00",
                 "language": "pl",
-                }
+            }
         }
 
 
@@ -37,6 +37,6 @@ class TextPredict(TextBase):
                 "prediction": 0,
                 "prediction_proba": [0.9, 0.1, 0.0],
                 "text": "Dla mnie faworytem do tytułu będzie Cracovia. Zobaczymy, czy typ się sprawdzi.",
-                "text_tokenized": "faworyt tytuł cracovia zobaczyć sprawdzić"
-                }
+                "text_tokenized": "faworyt tytuł cracovia zobaczyć sprawdzić",
+            }
         }
