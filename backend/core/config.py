@@ -19,6 +19,7 @@ class Settings(BaseSettings):
     port: int = 8080
     model_name: str
     spacy_corpus: str = 'pl_core_news_sm'
+    sentence_min_length: int = 10
 
     class Config:
         env_file = os.path.join(_PROJECT_DIR, '.env')
