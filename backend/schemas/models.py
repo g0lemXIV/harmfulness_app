@@ -38,7 +38,7 @@ class TextPredict(TextBase):
                 "prediction": 0,
                 "prediction_proba": [0.9, 0.1, 0.0],
                 "text": "Dla mnie faworytem do tytułu będzie Cracovia. "
-                        "Zobaczymy, czy typ się sprawdzi.",
+                "Zobaczymy, czy typ się sprawdzi.",
                 "text_tokenized": "faworyt tytuł cracovia zobaczyć sprawdzić",
             }
         }

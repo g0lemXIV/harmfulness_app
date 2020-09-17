@@ -10,6 +10,7 @@ class Predictor:
     """Base class for generate prediction using sklearn models,
     in the next version it should be change to child class,
     and codding with some patterns."""
+
     def __init__(self, model_name: str, language="pl", min_length: int = 10) -> None:
         """
         :param model_name: name of the model loaded into model_lib in memory dict
