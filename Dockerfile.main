@@ -19,4 +19,4 @@ ADD . /app
 
 RUN pip install uvicorn
 # Running Python Application
-CMD ["uvicorn", "main:api"]
+CMD ["python", "main.py"]
