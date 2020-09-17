@@ -7,17 +7,31 @@ from backend.data import parse_text
 
 
 class Predictor:
+    """Base class for generate prediction using sklearn models,
+    in the next version it should be change to child class,
+    and codding with some patterns."""
     def __init__(self, model_name: str, language="pl", min_length: int = 10) -> None:
+        """
+        :param model_name: name of the model loaded into model_lib in memory dict
+        :param language: language to use
+        :param min_length: minimum length of preprocessed text
+        """
         self.model_name = model_name
         self.model = model_lib[model_name]
         self.language = language
         self.min_length = min_length
 
-    def predict(self, payload: TextCreate) -> TextPredict:
-        """
+    def __str__(self):
+        return self.__class__.__name__
 
-        :param payload:
+    def predict(self, payload: TextCreate) -> TextPredict:
+        """Function for predict new text data used in api.
+
+        :param payload: TextCreate object created with pydantic
         :return:
+            return pydantic TextPredict object with prediction,
+            prediction probabilities, text, processed text, and
+            additional information.
         """
         if payload is None:
             raise ValueError(NO_VALID_PAYLOAD.format(payload))

@@ -1,5 +1,5 @@
 import re
-from backend.data import CORPUS
+from backend.core import CORPUS
 
 
 def _clean_text(text: str) -> str:
@@ -25,12 +25,12 @@ def _spacy_tokenizer(my_tokens: object) -> str:
     my_tokens = [
         word
         for word in my_tokens
-        if word.is_punct == False
-        and word.is_stop == False
+        if not word.is_punct
+        and not word.is_stop
         and len(word) > 3
-        and word.like_num == False
-        and word.is_currency == False
-        and word.like_email == False
+        and not word.like_num
+        and not word.is_currency
+        and not word.like_email
     ]
     # Lemmatization
     my_tokens = [
@@ -38,7 +38,7 @@ def _spacy_tokenizer(my_tokens: object) -> str:
         for word in my_tokens
     ]
     # make string from tokens
-    my_tokens = " ".join([i for i in my_tokens])
+    my_tokens = " ".join(i for i in my_tokens)
     return my_tokens
 
 

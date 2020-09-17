@@ -1,10 +1,7 @@
 from pathlib import Path
 import os
 
-from pydantic import (
-    BaseSettings,
-    Field,
-)
+from pydantic import BaseSettings
 
 _PROJECT_DIR = Path(__file__).resolve().parents[2]
 

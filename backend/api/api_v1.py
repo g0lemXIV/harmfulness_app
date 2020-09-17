@@ -37,7 +37,7 @@ async def post_prediction(
             min_length=settings.sentence_min_length,
         )
     except:
-        raise HTTPException(status_code=404, detail=HTTP_500_DETAIL)
+        raise HTTPException(status_code=404, detail=HTTP_500_DETAIL) from FastAPI
 
     prediction = model.predict(text_in)
     return prediction

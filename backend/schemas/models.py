@@ -15,6 +15,7 @@ class TextCreate(TextBase):
     class Config:
         schema_extra = {
             "example": {
+                "text": "to jest mój pierwszy test",
                 "user_id": 1,
                 "time_utc": "2020-09-20 20:00:00",
                 "language": "pl",
@@ -36,7 +37,8 @@ class TextPredict(TextBase):
                 "language": "pl",
                 "prediction": 0,
                 "prediction_proba": [0.9, 0.1, 0.0],
-                "text": "Dla mnie faworytem do tytułu będzie Cracovia. Zobaczymy, czy typ się sprawdzi.",
+                "text": "Dla mnie faworytem do tytułu będzie Cracovia. "
+                        "Zobaczymy, czy typ się sprawdzi.",
                 "text_tokenized": "faworyt tytuł cracovia zobaczyć sprawdzić",
             }
         }

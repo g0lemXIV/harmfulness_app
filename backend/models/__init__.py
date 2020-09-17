@@ -1,8 +1,7 @@
 import os
-from backend.core import settings
-
 # import predictor
 import joblib
+from backend.core import settings
 
 # load model before add it to pipeline
 models_pth = os.path.join(os.path.dirname(__file__), "models_pkl")
