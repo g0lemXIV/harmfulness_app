@@ -1,0 +1,22 @@
+FROM python:3.7-slim
+MAINTAINER Bodziony Rafal "bodziony.rafal@gmail.com"
+
+# install build utilities
+RUN apt-get update
+RUN apt-get upgrade -y
+
+# check our python environment
+RUN python --version
+RUN pip --version
+
+# install requirements first
+WORKDIR /app
+ADD ./requirements.txt /app
+RUN pip install --trusted-host pypi.python.org -r requirements.txt
+
+# Copy all the files from the project’s root to the working directory
+ADD . /app
+
+RUN pip install uvicorn
+# Running Python Application
+CMD ["uvicorn", "main:api"]
